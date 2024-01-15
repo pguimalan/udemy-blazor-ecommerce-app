@@ -6,8 +6,17 @@
     transition: .2s;
 }
 
-.media-img:hover {
-    transform: scale(2.1);
+    .media-img:hover {
+        transform: scale(1.1);
+    }
+
+.media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.media-body {
+    flex: 1;
 }
 
 .media-img-wrapper {
@@ -19,7 +28,7 @@
     color: green;
 }
 
-@media (max-width: 1023.98px){
+@media (max-width: 1023.98px) {
     .media {
         flex-direction: column;
     }
