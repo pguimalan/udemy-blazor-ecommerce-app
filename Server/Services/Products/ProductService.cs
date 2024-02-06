@@ -1,4 +1,6 @@
-﻿namespace BlazorEcommerceApp.Server.Services.Products
+﻿using BlazorEcommerceApp.Shared;
+
+namespace BlazorEcommerceApp.Server.Services.Products
 {
     public class ProductService : IProductService
     {
@@ -7,6 +9,19 @@
         public ProductService(DataContext context)
         {
             _context = context;
+        }
+
+        public async Task<ServiceResponse<List<Product>>> GetFeaturedProductsAsync()
+        {
+            var response = new ServiceResponse<List<Product>>
+            {
+                Data = await _context.Products
+                                   .Include(p => p.Variants)
+                                   .Where(p => p.Featured)
+                                   .ToListAsync()
+            };
+
+            return response;
         }
 
         public async Task<ServiceResponse<Product>> GetProductAsync(int productId)
