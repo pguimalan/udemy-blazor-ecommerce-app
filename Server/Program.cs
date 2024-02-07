@@ -1,9 +1,9 @@
 global using BlazorEcommerceApp.Server.Data;
-global using BlazorEcommerceApp.Shared;
-global using Microsoft.EntityFrameworkCore;
 global using BlazorEcommerceApp.Server.Services.Categories;
 global using BlazorEcommerceApp.Server.Services.Products;
-
+global using BlazorEcommerceApp.Shared;
+global using Microsoft.EntityFrameworkCore;
+global using BlazorEcommerceApp.Server.Services.CartService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 

@@ -59,7 +59,7 @@ namespace BlazorEcommerceApp.Client.Services.ProductService
             }
             if(Products.Count == 0)
                 Message = "No prodcuts found";
-            ProductsChanged.Invoke();
+            ProductsChanged?.Invoke();
         }
 
         public async Task<List<string>> GetProductSearchSuggestions(string search)
