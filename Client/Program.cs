@@ -1,9 +1,10 @@
 global using BlazorEcommerceApp.Shared;
-
-using BlazorEcommerceApp.Client;
-using BlazorEcommerceApp.Client.Services.CartService;
-using BlazorEcommerceApp.Client.Services.CategoryService;
-using BlazorEcommerceApp.Client.Services.ProductService;
+global using BlazorEcommerceApp.Client;
+global using BlazorEcommerceApp.Client.Services.AuthService;
+global using BlazorEcommerceApp.Client.Services.CartService;
+global using BlazorEcommerceApp.Client.Services.CategoryService;
+global using BlazorEcommerceApp.Client.Services.ProductService;
+global using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -16,7 +17,10 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
 builder.Services.AddBlazoredLocalStorage();
 

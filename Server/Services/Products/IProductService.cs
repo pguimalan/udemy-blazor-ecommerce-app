@@ -1,4 +1,6 @@
-﻿namespace BlazorEcommerceApp.Server.Services.Products
+﻿using BlazorEcommerceApp.Shared.DTOs;
+
+namespace BlazorEcommerceApp.Server.Services.Products
 {
     public interface IProductService
     {

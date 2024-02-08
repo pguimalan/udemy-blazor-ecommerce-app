@@ -1,4 +1,4 @@
-﻿namespace BlazorEcommerceApp.Shared
+﻿namespace BlazorEcommerceApp.Shared.DTOs
 {
     public class ServiceResponse<T>
     {

@@ -1,4 +1,6 @@
-﻿namespace BlazorEcommerceApp.Server.Services.Categories
+﻿using BlazorEcommerceApp.Shared.DTOs;
+
+namespace BlazorEcommerceApp.Server.Services.Categories
 {
     public interface ICategoryService
     {

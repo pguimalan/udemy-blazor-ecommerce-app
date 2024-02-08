@@ -1,4 +1,5 @@
 ﻿using BlazorEcommerceApp.Server.Services.Products;
+using BlazorEcommerceApp.Shared.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

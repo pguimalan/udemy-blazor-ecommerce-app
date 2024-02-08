@@ -1,4 +1,4 @@
-﻿using BlazorEcommerceApp.Shared;
+﻿using BlazorEcommerceApp.Shared.DTOs;
 using System.Net.Http.Json;
 
 namespace BlazorEcommerceApp.Client.Services.ProductService

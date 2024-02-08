@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlazorEcommerceApp.Shared.DTOs;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorEcommerceApp.Server.Controllers
 {

@@ -1,4 +1,4 @@
-﻿using BlazorEcommerceApp.Shared;
+﻿using BlazorEcommerceApp.Shared.DTOs;
 using Blazored.LocalStorage;
 using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
