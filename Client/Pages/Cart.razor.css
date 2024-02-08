@@ -5,13 +5,19 @@
 
 .image-wrapper {
     width: 150px;
-    text-align: center;
+    text-align: center;    
 }
 
 .image {
     max-height: 150px;
     max-width: 150px;
     padding: 6px;
+    transition: .2s;
+}
+
+
+.image:hover {
+    transform: scale(1.1);
 }
 
 .name {
@@ -22,4 +28,20 @@
 .cart-product-price {
     font-weight: 600;
     text-align: right;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    padding: 0px;
+    color:red;
+    font-size: 12px;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
+.input-quantity {
+    width: 70px;
 }

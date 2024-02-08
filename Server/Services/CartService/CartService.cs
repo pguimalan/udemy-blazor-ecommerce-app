@@ -42,6 +42,7 @@
                     Price = productVariant.Price,
                     ProductType = productVariant.ProductType.Name,
                     ProductTypeId = productVariant.ProductTypeId,
+                    Quantity = cartItem.Quantity
                 };
 
                 result.Data.Add(cartProduct);

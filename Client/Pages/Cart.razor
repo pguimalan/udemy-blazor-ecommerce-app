@@ -20,15 +20,17 @@ else
                 </div>
                 <div class="name">
                     <h5><a href="/product/@c.ProductId">@c.Title</a></h5>
-                    <span>@c.ProductType</span>
+                    <span>@c.ProductType</span><br />
+                    <input class="form-control input-quantity" type="number" min="1" value="@c.Quantity" @onchange="@((ChangeEventArgs e) => UpdateQuantity(e, c))" />
+                    <button class="btn-delete" @onclick="@(()=> RemoveProductFromCart(c.ProductId, c.ProductTypeId))">Delete</button>
                 </div>
                 <div class="cart-product-price">
-                    $@c.Price
+                    $@(c.Price * c.Quantity)
                 </div>
             </div>
         }
         <div class="cart-product-price">
-            Total (@cartProducts.Count) Item(s): $@cartProducts.Sum(p => p.Price)
+            Total (@cartProducts.Count): $@cartProducts.Sum(p => p.Price * p.Quantity)
         </div>
     </div>
 }
@@ -39,6 +41,11 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        await LoadCart();
+    }
+
+    private async Task LoadCart()
+    {
         if ((await CartService.GetCartItems()).Count == 0)
         {
             message = "Your cart is empty.";
@@ -48,5 +55,19 @@ else
         {
             cartProducts = await CartService.GetCartProducts();
         }
+    }
+
+    private async Task RemoveProductFromCart(int productId, int productTypeId)
+    {
+        await CartService.RemoveProductFromCart(productId, productTypeId);
+        await LoadCart();
+    }
+
+    private async Task UpdateQuantity(ChangeEventArgs e, CartProductResult cartProduct)
+    {
+        cartProduct.Quantity = int.Parse(e.Value.ToString());
+        if (cartProduct.Quantity < 1 || cartProduct.Quantity == null)
+            cartProduct.Quantity = 1;
+        await CartService.UpdateQuantity(cartProduct);
     }
 }
