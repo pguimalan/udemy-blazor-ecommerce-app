@@ -1,9 +1,6 @@
-﻿using BlazorEcommerceApp.Client.Pages;
-using BlazorEcommerceApp.Shared.DTOs;
+﻿using BlazorEcommerceApp.Shared.DTOs;
 using Blazored.LocalStorage;
 using System.Net.Http.Json;
-using System.Net.Security;
-using static System.Net.WebRequestMethods;
 
 namespace BlazorEcommerceApp.Client.Services.CartService
 {

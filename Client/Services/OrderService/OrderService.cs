@@ -1,5 +1,4 @@
-﻿
-using BlazorEcommerceApp.Shared.DTOs;
+﻿using BlazorEcommerceApp.Shared.DTOs;
 using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
