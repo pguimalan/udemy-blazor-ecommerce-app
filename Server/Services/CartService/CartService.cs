@@ -1,6 +1,8 @@
-﻿using BlazorEcommerceApp.Server.Services.AuthService;
+﻿using BlazorEcommerceApp.Server.Migrations;
+using BlazorEcommerceApp.Server.Services.AuthService;
 using BlazorEcommerceApp.Shared;
 using BlazorEcommerceApp.Shared.DTOs;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Security.Claims;
 
 namespace BlazorEcommerceApp.Server.Services.CartService
@@ -75,10 +77,12 @@ namespace BlazorEcommerceApp.Server.Services.CartService
             return new ServiceResponse<int> { Data = cartItemsCount };
         }
 
-        public async Task<ServiceResponse<List<CartProductResult>>> GetDbCartProducts()
+        public async Task<ServiceResponse<List<CartProductResult>>> GetDbCartProducts(int? userId = null)
         {
+            userId ??= _authService.GetUserId();
+
             return await GetCartProducts(await _context.CartItems
-                .Where(ci => ci.UserId == _authService.GetUserId()).ToListAsync());
+                .Where(ci => ci.UserId == userId).ToListAsync());
         }
 
         public async Task<ServiceResponse<bool>> AddToCart(CartItem cartItem)
