@@ -6,7 +6,8 @@ global using BlazorEcommerceApp.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using BlazorEcommerceApp.Server.Services.CartService;
 global using BlazorEcommerceApp.Server.Services.PaymentService;
-using BlazorEcommerceApp.Server.Services.AuthService;
+global using BlazorEcommerceApp.Server.Services.AuthService;
+global using BlazorEcommerceApp.Server.Services.AddressService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -30,6 +31,7 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IAddressService, AddressService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(option =>
